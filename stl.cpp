@@ -59,22 +59,108 @@ void explainVector(){
     
     // for iterating through the vector
     for(vector<int>::iterator i=test.begin(); i!=test.end();i++ ){
-        cout<<*(i)<<endl;
+        cout<<*(i)<<" ";
     }
+    cout<<endl;
     
     cout<<"using auto"<<endl;
     // or use auto-> identifies the datatype automatically
     for(auto iter=test.begin();iter!=test.end();iter++){
-        cout<<*(iter)<<endl;
+        cout<<*(iter)<<" ";
     }
+    cout<<endl;
 
     //erasing data from vector
-    
+    // .erase(start,end)
+    // start-address of the starting index
+    // end- address of the element just after the last element to be deleted
+    // the vector resizes itself 
+    test.erase(test.begin());
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
 
-    
+    test.emplace_back(500);
 
+    test.erase(test.begin(),test.begin()+2);
+
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+
+    // how to insert in the vector
+    // .insert(start,number, amount ) 
+    // number is optional
+    // start- where the insertion starts
+    // number- the number of times the item needs to be inserted
+    // amount- the amount to be inserted
+    // if number and amount- addresses
+    // the amount in the addresses are directly added to the vector
+
+    test.insert(test.begin(),300);
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    test.insert(test.begin(),3,999);
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    vector<int> k(2,777);
+    test.insert(test.begin(),k.begin(),k.end());
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+
+    // to calculate size of the vector
+    cout<<"Size: "<<test.size()<<endl;
+
+    vector<int> t1={1,2,3};
+    cout<<"t1: ";
+    for(auto iter=t1.begin();iter!=t1.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    vector<int> t2={999,998,997};
+    cout<<"t2: ";
+    for(auto iter=t2.begin();iter!=t2.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    t1.swap(t2);
+    cout<<"t1: ";
+    for(auto iter=t1.begin();iter!=t1.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    cout<<"t2: ";
+    for(auto iter=t2.begin();iter!=t2.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    cout<<"test: ";
+    test.insert(test.begin(),k.begin(),k.end());
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    cout<<"Clearing test-> "<<endl;
+    test.clear();
+    cout<<"test: ";
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<" ";
+    }
+    cout<<endl;
+    //.empty-  returns boolean value if empty- true or not
+
+    cout<<test.empty()<<endl;
+    cout<<t1.empty()<<endl;
 }
 int main(){
-    explainPair();
+    //explainPair();
     explainVector();
 }
