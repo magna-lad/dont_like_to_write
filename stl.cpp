@@ -12,7 +12,7 @@ void explainPair(){
     cout<<p.second<<endl; // acccessing the second element of the pair
 
     pair<int,string> p2= {1,"sangam"};
-    cout<<p2.first<<endl; // Accessing the first element of the pair
+    cout<<p2.second<<endl; // Accessing the first element of the pair
 
     //making an array of pairs
     pair<int,int> arr[] = {{1,2},{3,4},{5,6}};// makes an array of pairs;
@@ -40,13 +40,37 @@ void explainVector(){
 
     // starting a vector with initial size
     vector<int> v3(5,10); // creates a vecotr with size of 5 and all elements are initialzied to 10
-    vector<int> v4(5); // creates a vectro with size of5 with garbage values
+    vector<int> v4(5); // creates a vector with size of 5 with garbage values
     
     //note
     // to create a copy vector with similar size
     vector<int> v5(v3); // creates a copy of v3
 
+    // iterators
+    // as the name suggests, used to iterate 'vectors'
+    vector<int> test={100,200,300,400};
+
+    vector<int>::iterator ik = test.begin(); // i points to the address of the starting place of the vector stl
+                                            // and *(i) lets us get the data inside the address
+    cout<<*(ik)<<endl;
+
+    vector<int>::iterator it=test.end(); // due to .end, it points to the address just behind the last item of the vctor,ie, a garbage value
+    cout<<*(it)<<" Garbage value"<<endl;
     
+    // for iterating through the vector
+    for(vector<int>::iterator i=test.begin(); i!=test.end();i++ ){
+        cout<<*(i)<<endl;
+    }
+    
+    cout<<"using auto"<<endl;
+    // or use auto-> identifies the datatype automatically
+    for(auto iter=test.begin();iter!=test.end();iter++){
+        cout<<*(iter)<<endl;
+    }
+
+    //erasing data from vector
+    
+
     
 
 }
