@@ -3,6 +3,8 @@
 
 #include<iostream>
 #include<vector>
+#include<list>
+#include<deque>
 using namespace std;
 
 void explainPair(){
@@ -27,6 +29,8 @@ void explainPair(){
 
 
 void explainVector(){
+    // sinlgy linked list
+
     // Vector is also a container in STL which can dynamically resize itself unlike arrays.
     vector<int> v; // declaring a vector of integers
     v.push_back(1); // adding an element to the vector
@@ -160,7 +164,130 @@ void explainVector(){
     cout<<test.empty()<<endl;
     cout<<t1.empty()<<endl;
 }
+
+
+void explainList(){
+    // double linked lists
+    // aage se bhi and piche se bhi connected hai
+    list<int> l={1,2,3,4};
+    cout<<"list: ";
+    for(list<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    // used to push at the end
+    l.push_back(999);
+    cout<<"list: ";
+    for(list<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    l.emplace_back(909); // always better or similar to push_back()
+    cout<<"list: ";
+    for(list<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+
+    // used to push at the front
+    l.push_front(111);
+    cout<<"list: ";
+    for(list<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    l.emplace_front(101);
+    cout<<"list: ";
+    for(list<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+
+
+    // other functions are the same
+    // begin, end, rbegin, rend, size, clear, swap
+}
+
+
+void explainDeque(){
+    // same as lists- more info latter
+    deque<int> l={1,2,3,4};
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    // used to push at the end
+    l.push_back(999);
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    l.emplace_back(909); // always better or similar to push_back()
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+
+    // used to push at the front
+    l.push_front(111);
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    l.emplace_front(101);
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+
+    // new
+    l.pop_back();
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    l.pop_front();
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    cout<<l.back()<<endl;
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+    cout<<l.front()<<endl;
+    cout<<"deque: ";
+    for(deque<int>::iterator i=l.begin();i!=l.end();i++){
+        cout<<*(i)<<" ";
+    }
+    cout<<endl;
+
+
+
+    // other functions are the same
+    // begin, end, rbegin, rend, size, clear, swap
+}
+
+
+void explainStack(){
+    // LIFO- last in first out
+    // the one which goes the last comes out the first
+
+    
+}
 int main(){
     //explainPair();
-    explainVector();
+    //explainVector();
+    //explainList();
+    //explainDeque();
+
 }
