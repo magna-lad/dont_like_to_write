@@ -5,6 +5,8 @@
 #include<vector>
 #include<list>
 #include<deque>
+#include<stack>
+#include<queue>
 using namespace std;
 
 void explainPair(){
@@ -281,13 +283,42 @@ void explainDeque(){
 void explainStack(){
     // LIFO- last in first out
     // the one which goes the last comes out the first
+    stack<int> s;
+    s.push(5);
+    s.push(4);
+    s.push(3);
+    s.emplace(2);
+    cout<<s.top()<<endl;
+    s.pop();
+    cout<<s.top()<<endl;
 
-    
+    cout<<s.size();
+    // we cannot print the stack only the top can be printed
+}
+
+void explainQueue(){
+    // it is first in first out (FIFO)
+    queue<int> q;
+    q.push(4); //first- front
+    q.push(3);
+    q.push(2);
+    q.push(1);
+    q.push(0); //last- back
+
+    cout<<q.back()<<endl; // prints the element at the end
+    cout<<q.front()<<endl; // prints the element at the front
+
+    q.pop(); // deletes the element to the font
+
+    cout<<q.front()<<endl;
+
 }
 int main(){
     //explainPair();
     //explainVector();
     //explainList();
     //explainDeque();
+    //explainStack();
+    //explainQueue();
 
 }
