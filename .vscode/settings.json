@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xutility": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "utility": "cpp",
+        "iterator": "cpp",
+        "initializer_list": "cpp",
+        "xstring": "cpp",
+        "atomic": "cpp",
+        "ios": "cpp",
+        "system_error": "cpp",
+        "xlocinfo": "cpp",
+        "list": "cpp",
+        "deque": "cpp"
+    }
+}

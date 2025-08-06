@@ -7,6 +7,7 @@
 #include<deque>
 #include<stack>
 #include<queue>
+#include<set>
 using namespace std;
 
 void explainPair(){
@@ -23,7 +24,7 @@ void explainPair(){
     cout<<arr[0].first<<endl; // Accessing the first element of the first pair
     cout<<arr[0].second<<endl; // Accessing the second element of the first pair
 
-    //pair withint pairs
+    //pair with int pairs
     pair<int, pair<int, int>> p3= {1,{2,3}};
     cout<<p3.second.first<<endl; // Accessing the first element of the second pair
 }
@@ -38,6 +39,8 @@ void explainVector(){
     v.push_back(1); // adding an element to the vector
     v.emplace_back(2); // adding an element to the vector
     // for any case emplace_back is better or more efficient than push_back
+    // push_back- makes a temporary object and copies it in the container of the original object and destroys the temporary object
+    // emplace_back- directly makes the new object in the original container
 
     //special case for pair 
     vector<pair<int,int>> v2;
@@ -82,7 +85,7 @@ void explainVector(){
     // end- address of the element just after the last element to be deleted
     // the vector resizes itself 
     test.erase(test.begin());
-    for(auto iter=test.begin();iter!=test.end();iter++){
+    for(auto iter=test.begin();iter!=test.end();iter++){ // auto- automatically senses the datatype of the object formed
         cout<<*(iter)<<" ";
     }
     cout<<endl;
@@ -311,14 +314,74 @@ void explainQueue(){
     q.pop(); // deletes the element to the font
 
     cout<<q.front()<<endl;
+}
+
+void explainPQ(){
+    // not a linear data structure
+    // it is a tree
+
+    // the maximum value is stored in the top
+    // also called max heap
+    priority_queue<int> pq ;
+    pq.emplace(1); //{1}
+    pq.emplace(10); //{10,1}
+    pq.emplace(100); //{100,10,1}
+
+    cout<<pq.top()<<endl; // 100 will be printed out O(1)
+
+    // the minimum value is stored in the top
+    // also called min heap
+    priority_queue<int,vector<int>,greater<int>> pq_min;
+    pq_min.emplace(1); //{1}
+    pq_min.emplace(10); //{1,10}
+    pq_min.emplace(100); //{1,10,100}
+
+    cout<<pq_min.top()<<endl; // 1
+}
+
+
+void explainSet(){
+    // sorted and unique elements are stored
+    set<int> st;
+    st.insert(1);
+    st.emplace(2);
+    st.emplace(2);
+    st.emplace(10);
+
+    for(auto iter=st.begin();iter != st.end();iter++){
+        cout<<*(iter)<<endl;
+    }
+
+    //every complex function in log(n)
+    // start,end,rstart,rend are same as vector
+
+    auto idx = st.find(2); // returns the address of the block in which 2 resides
+
+    auto idx2 = st.find(100); // if the input is out of bounds the address returnes is just after the last element
+
+    int cnt = st.count(1); // gives 1 if there and 0 if not
+    st.erase(2); // simply erases an element
+
+    //erase(start,end) both should be addresses  [start,end)
+
+    auto s = st.find(1);
+    auto e = st.find(10);
+    st.erase(s,e);
+
+    // lower bound and upper bound
+    //**************to be continued******************
+
 
 }
+
 int main(){
+    std::cout<<"hello"<<std::endl;
     //explainPair();
     //explainVector();
     //explainList();
     //explainDeque();
     //explainStack();
     //explainQueue();
-
+    //explainPQ();
+    explainSet();
 }
