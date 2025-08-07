@@ -458,7 +458,69 @@ void explainUnorderedMap(){
     unordered_map<int,int> l;
 }
 
+bool comp(pair<int,int> n1,pair<int,int> n2){
+    if (n1.second>n2.second) return true; // already in descding order no need to change
+    if (n1.second<n2.second) return false; // needed to be reversed, will be reversed automatically
+    if (n1.second==n2.second){
+        if (n1.first<n2.first) return true; 
+        if (n1.first>n2.first) return false;     
+    }
+}
+void explainSort(){
+    // sort(start,end,comparator)
+    // [star,end)
+    // comparator- how should the values be compared
+    // if comparator = empty-in descending order
+    // if comparator = greater<int> - in ascending order
+    // or we can make a custom comparator
 
+    vector<pair<int,int>> l={{1,2},{3,2},{7,1},{4,8}};
+
+    //sort(l.begin(),l.end());
+
+    //for(auto iter=l.begin();iter!=l.end();iter++){
+    //    cout<<*(iter)<<endl;
+    //}
+
+    //in ascening order
+    //sort(l.begin(),l.end(),greater<int>()); // the syntax changes over time
+
+    //for(auto iter=l.begin();iter!=l.end();iter++){
+    //    cout<<*(iter)<<endl;
+    //}
+
+    //q- sort it in descending order according to second element
+    //if the second element are equal sort it according to first element in ascending order
+    
+    sort(l.begin(),l.end(),comp);
+
+    for(auto iter=l.begin();iter!=l.end();iter++){
+        cout<<(*iter).first<<' '<<(*iter).second<<endl;
+    }
+
+}
+
+void explainExtra(){
+    // if want to find the number of set bits
+    int n=6;
+    int set = __builtin_popcount(n);
+    cout<<set<<endl;
+
+    // for long long
+    long long m=131231231;
+    int c = __builtin_popcountll(m);
+    cout<<c<<endl;
+
+    // to find all the permutations of a string
+    string s = "123";
+    sort(s.begin(),s.end());
+    do{
+        cout<<s<<endl;
+    }while(next_permutation(s.begin(),s.end())); // works in dictioary order- so sort the original before proceeding
+    vector<int> r={2,3,1,1,99} ;
+    int maxi = *max_element(r.begin(),r.end());
+    cout<<maxi<<endl;
+}
 
 int main(){
     //std::cout<<"hello"<<std::endl;
@@ -472,4 +534,6 @@ int main(){
     //explainSet();
     //explainMultiset();
     //explainMap();
+    //explainSort();
+    //explainExtra();
 }
