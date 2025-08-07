@@ -8,6 +8,9 @@
 #include<stack>
 #include<queue>
 #include<set>
+#include<algorithm>
+#include<map>
+#include<unordered_map>
 using namespace std;
 
 void explainPair(){
@@ -348,9 +351,9 @@ void explainSet(){
     st.emplace(2);
     st.emplace(10);
 
-    for(auto iter=st.begin();iter != st.end();iter++){
-        cout<<*(iter)<<endl;
-    }
+    //for(auto iter=st.begin();iter != st.end();iter++){
+    //    cout<<*(iter)<<endl;
+    //}
 
     //every complex function in log(n)
     // start,end,rstart,rend are same as vector
@@ -369,13 +372,96 @@ void explainSet(){
     st.erase(s,e);
 
     // lower bound and upper bound
-    //**************to be continued******************
+    
+    // LOWER BOUND
+    // lower_bound(a,a+n,x)
+    // returns the iterator of the first occurence of a number not less than x 
+    // if found from a to a+n (n-size of the array, if found- good
+    // if not immediate next iterator address will be given
+    // if the values are out of bound- returns garbage values
+    vector<int> a = {1,3,4,5};
 
+    auto i = lower_bound(a.begin(),a.end(),6);
+    cout<<*(i)<<endl; 
+    
+    // UPPER BOUND
+    // upper_bound(a,a+n,x)
+    // returns the iterator of the first element greater than x
+    // if found from a to a+n (n-size of the array, if found- good)
+    // if not immediate larger number will be given out
+    // if the values are out of bound- returns garbage values
+    auto k = upper_bound(a.begin(),a.end(),4);
+    cout<<*(k)<<endl;
+    // in set same remember the address is returned
+}
+
+void explainMultiset(){
+    // unlike set emphasis is only on the fact that the set is sorted
+    // uniqueness in the elements uneccary
+    multiset<int> m;
+    m.emplace(1); //{1}
+    m.emplace(1); //{1,1}
+    m.emplace(1); //{1,1,1}
+
+    m.erase(1); // erases all occurences of 1
+
+    // to delete only once occurence
+    m.erase(m.find(1)); //find will give the address of the first occurence of 1 and that particular 1 will be deleted
+}
+
+void explainUSet(){
+    // no uniqueness
+    // no order
+    // totally randomised order
+    // lower_bound and upper_bound doesn't work
 
 }
 
+void explainMap(){
+    // similar to dictionaries in python
+    // consists of key:item pair, the structure of the key can be anything but uniform in a map
+    // the key-value pairs will be arranged in an ascending order with respect to the keys
+    // the keys will always be unique
+
+    map<int,int> m; // the key and item will both be integer
+
+    m[1]=2; // the objects will be stored in sorted format with respect to the keys
+    m[2]=10;
+    m[3]=40;
+
+    map< pair<int,int> ,int> k; // the key will be a pair and the items will be a singular integer
+    k[{1,2}]=3;
+    k[{3,4}]=4;
+
+    for(auto it:m){
+        cout<<it.first<<" "<<it.second<<endl;
+    }
+
+    cout<<m[1]<<endl;
+    cout<<m[2]<<endl;
+
+    auto ix = m.find(2); // will return the index of the value
+    cout<<(*ix).first<<endl;
+
+}
+
+void explainMultiMap(){
+    // can store duplicate of keys 
+    // stored in ascending order like simple maps
+    // rest all same as maps
+    multimap<int,int> l;
+}
+
+void explainUnorderedMap(){
+    // can store duplicate of keys
+    // stored in randomized order
+    unordered_map<int,int> l;
+}
+
+
+
 int main(){
-    std::cout<<"hello"<<std::endl;
+    //std::cout<<"hello"<<std::endl;
     //explainPair();
     //explainVector();
     //explainList();
@@ -383,5 +469,7 @@ int main(){
     //explainStack();
     //explainQueue();
     //explainPQ();
-    explainSet();
+    //explainSet();
+    //explainMultiset();
+    //explainMap();
 }
