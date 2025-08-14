@@ -503,6 +503,7 @@ void explainSort(){
 void explainExtra(){
     // if want to find the number of set bits
     int n=6;
+    
     int set = __builtin_popcount(n);
     cout<<set<<endl;
 
@@ -513,6 +514,7 @@ void explainExtra(){
 
     // to find all the permutations of a string
     string s = "123";
+    
     sort(s.begin(),s.end());
     do{
         cout<<s<<endl;
@@ -536,4 +538,5 @@ int main(){
     //explainMap();
     //explainSort();
     //explainExtra();
+
 }
