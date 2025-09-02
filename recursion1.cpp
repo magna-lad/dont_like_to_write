@@ -10,9 +10,9 @@ using namespace std;
 // upon reaching a base condition the functions are popped till stack is cleared
 // if the base condition is not there the ram and stack will be overloaded
 
-int count=0;
 
 void hello(){
+    int count=0;
     if (count==3) return;
     count++;
     cout<<"Hello"<<endl;

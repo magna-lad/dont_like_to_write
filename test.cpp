@@ -23,10 +23,14 @@ int fib(int n, vector<int>& memo) { // reference of the array memo is passed
 
 int main(){
     int n=6;
-    vector<int> memo(n+1,-1);
-    int k=fib(n,memo);
+    
+    vector<int> memo(26,0);
+    for (auto iter = memo.begin();iter!=memo.end();iter++){
+        char k = *(iter);
+        cout<<k<<" ";
+    }
 
-    cout<<k;
+    //cout<<k;
 }
 
 
