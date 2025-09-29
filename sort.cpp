@@ -50,8 +50,29 @@ void bubble_sort(){
     }
 }
 
+void insertion_sort(){
+    // here the sorting will start from the righmost position with the sorted array of the size=0 till the arr.size()
+    // worst case = O(n^2)
+    // best case = O(n)
+    int arr[6] = {4,1,3,9,99,8};
+    int temp;
+    for(int i=0;i<6;i++){
+        int j=i;
+        while(j>0 && (arr[j]<arr[j-1])) // j>0 and not j>=0 as then during arr[j-1] the index will go to -1, ie, index error
+        {
+            temp = arr[j];
+            arr[j]=arr[j-1];
+            arr[j-1]=temp;
+        }
+    }
+    for(int i=0;i<6;i++){
+        cout<<arr[i]<<' ';
+    }
+}
+
 int main(){
     //selection_sort();
-    bubble_sort();
+    //bubble_sort();
+    insertion_sort();
     return 0;
 }
