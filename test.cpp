@@ -7,37 +7,46 @@
 #include<set>
 #include<algorithm>
 #include<map>
-#include<string>
 #include<unordered_map>
 using namespace std;
 
-int fib(int n, vector<int>& memo) { // reference of the array memo is passed
-   if (n==0) return 0;
-   if (n==1) return 1;
-   if (memo[n]!= -1) return memo[n]; // if already there return it
 
-   memo[n] = fib(n-1,memo) + fib(n-2,memo);
-   return  memo[n];
+
+
+class item 
+{
+static int count;
+int number;
+public :
+void getdata(int a)
+{
+number=a;
+count++;
 }
-    // many numbers are being repeated-> store the new numbers in an array and reuse the already stored numbers
+void getcount(void)
+{
+cout<<"count:"<<count<<"\n";
+}
+};
 
-int main(){
-    int n=6;
-    
-    vector<int> memo(26,0);
-    for (auto iter = memo.begin();iter!=memo.end();iter++){
-        char k = *(iter);
-        cout<<k<<" ";
-    }
+int item :: count;
+int main( )
+{
+item a,b,c; //count is intialized to zero 
+a.getcount( ); // display count
+b.getcount( );
+c.getcount();
 
-    //cout<<k;
+a.getdata(100); // getting data into  objects a,b,c
+a.getcount();
+b.getdata(200);
+b.getcount();
+c.getdata(300);
+c.getcount();
+cout<<"After reading data "<<"\n";
+//a.getcount(); b.getcount();c.getcount(); // display count
+return 0;
 }
 
 
 
-
-
-// many numbers are being repeated-> store the new numbers in an array and reuse the already stored numbers
-// initially fill with -1
-// if not present store it
-// if already present return the number 

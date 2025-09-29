@@ -17,6 +17,7 @@
         "list": "cpp",
         "deque": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "algorithm": "cpp"
     }
 }
