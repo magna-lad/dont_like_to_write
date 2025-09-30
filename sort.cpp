@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 // selection sort
@@ -71,9 +72,47 @@ void insertion_sort(){
     }
 }
 
+
+void merge_sort(vector<int>& arr,int l,int r){
+    if (l==r) return; // base case
+    vector<int> temp;
+    int left = l;
+    int mid = (l+r)/2;
+    int right = mid+1;
+    while(left<=mid && right<=r){
+        if(arr[left]<=arr[right]){
+            temp.emplace_back(arr[left]);
+            left++;
+        }
+        else{
+            temp.emplace_back(arr[right]);
+            right++;
+        }
+    }
+    while(left<=right){
+        temp.emplace_back(arr[left]);
+        left++;
+    }
+    while(right<=left){
+        temp.emplace_back(arr[right]);
+        right++;
+    }
+    for(int i=l;i<r;i++){
+        arr[i] = temp[i-l];
+    }
+    merge_sort(arr, l, r-1);
+    return;
+}
+
 int main(){
     //selection_sort();
     //bubble_sort();
-    insertion_sort();
+    //insertion_sort();
+
+    vector<int> arr={3,2,4,2,1};
+    merge_sort(arr,0,arr.size()-1);
+    for(auto iter=arr.begin();iter!=arr.end();iter++){
+        cout<<*(iter)<<endl;
+    }
     return 0;
 }
