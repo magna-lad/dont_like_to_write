@@ -118,13 +118,38 @@ void mergeSort(vector<int>& arr,int l,int h){
     // space complexity - O(N)
 }   
 
+int pivotIndex(vector<int> &arr, int low, int high){
+    int pivot = arr[low];
+    int i = low+1;
+    int j = high;
+    while(i<=j){
+        while(i<=high && arr[i]<=pivot) i++;
+        while(arr[j]>pivot && j>=low) j--;
+        if (i<j) swap(arr[i],arr[j]);
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+
+void quickSort(vector<int>& arr,int low, int high){
+    
+    if (low>=high) return; // base case
+    int pivot = pivotIndex(arr,low,high);
+    quickSort(arr,low,pivot-1);
+    quickSort(arr,pivot+1,high);
+}
+
 int main(){
     //selection_sort();
     //bubble_sort();
     //insertion_sort();
 
     vector<int> arr={3,2,4,2,1};
-    mergeSort(arr,0,arr.size()-1);
+    //mergeSort(arr,0,arr.size()-1);
+    
+    quickSort(arr,0,arr.size()-1);
+    
     for(auto iter=arr.begin();iter!=arr.end();iter++){
         cout<<*(iter)<<endl;
     }

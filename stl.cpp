@@ -112,9 +112,9 @@ void explainVector(){
     // the amount in the addresses are directly added to the vector
 
     test.insert(test.begin(),300);
-    for(auto iter=test.begin();iter!=test.end();iter++){
-        cout<<*(iter)<<" ";
-    }
+        for(auto iter=test.begin();iter!=test.end();iter++){
+            cout<<*(iter)<<" ";
+        }
     cout<<endl;
     test.insert(test.begin(),3,999);
     for(auto iter=test.begin();iter!=test.end();iter++){
